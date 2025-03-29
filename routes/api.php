@@ -1,8 +1,6 @@
 <?php
 
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\OrdersController;
-use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\TasksController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
@@ -21,8 +19,6 @@ Route::post('login',[AuthController::class,'login']);
 
 Route::middleware('auth:sanctum')->group( function () {
     Route::post('logout', [AuthController::class, 'logout']);
-    Route::apiResource('tasks',OrdersController::class);
-    Route::get('products',[ProductsController::class,'getProducts']);
     Route::get('user',[UsersController::class,'user']);
     Route::apiResource('task',TasksController::class);
 });
